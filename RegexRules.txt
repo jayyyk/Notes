@@ -1,0 +1,49 @@
+
+.       - Any Character Except New Line (. match krne k liye \. use krna hota hai)
+\d      - Digit (0-9)
+\D      - Not a Digit (0-9)
+\w      - Word Character (a-z, A-Z, 0-9, _)
+\W      - Not a Word Character
+\s      - Whitespace (space, tab, newline)
+\S      - Not Whitespace (space, tab, newline)
+
+\b      - Word Boundary (word Boundary means yaa to line start ho rhi ho ya word after space ho)
+\B      - Not a Word Boundary
+^       - Beginning of a String (in brackets it works as negation)
+$       - End of a String
+
+[]      - Matches Characters in brackets (Also it treats like or case without |, eg. [Ss] It wo select both in case of's' or 'S')
+[^ ]    - Matches Characters NOT in brackets
+|       - Either Or
+( )     - Group
+
+Quantifiers:
+*       - 0 or More
++       - 1 or More
+?       - 0 or One  (means match even if the word is present or not) (Eg.- 'https?')(This would match for both https and http)
+{3}     - Exact Number
+{3,4}   - Range of Numbers (Minimum, Maximum)
+
+
+MetaCharacters (Need to be escaped):
+. ^ $ * + ? { } [ ] \ | ( )  -These words does not match raw, to match these \ is used before the Character. eg- \.
+
+
+
+#### Sample Regexs ####
+
+[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+ 
+
+raw string(r)- In regular string there are character has special meanings for eg. \n- used for new line , \t - used for tab so on.
+so to match exact same characters we use raw string in Regexs. 
+
+
+sentence= 'Hi! Regex, tadaaadadda'
+re.finditer(r'Hi! Regex',sentence) (r here sepecifies raw string) 
+
+finditer is kind of main fuction in Regex, every other follows
+eg-
+re.sub (return group elements) (group 0 is complete pattern and then 1 and other refers to that Number group)
+re.search
+
+Also, re.IGNORECASE / re.I - ignores lowercase or uppercase difference
